@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>First</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1274, user-scalable=no">
+	<meta name="description" content="First">
+	<meta name="author" content="Me">
+	<meta name="generator" content="slidify" />
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/frameworks/shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" media="print"
+	  href="libraries/frameworks/shower/themes/ribbon/styles/print.css">
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css">  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+	<!--
+		To apply styles to the certain slides
+		use slide ID to get needed elements
+		-->
+	<style>
+		#Cover h2 {
+      margin:65px 0 0;
+			color:#FFF;
+			text-align:center;
+			font-size:70px;
+			}
+		#FitToWidth h2,
+		#FitToHeight h2 {
+			color:#FFF;
+			text-align:center;
+			}
+	</style> 
+</head>
+<body class="list">
+  <header class="caption">
+  	<h1>First</h1>
+	</header>
+  <section class="slide " id="slide-1">
+  <div>
+    <h2>Slide 1</h2>
+    <p>Estimation of Variable Importance for various random Forests </p>
+
+<p>Shiva</p>
+
+  </div>
+</section>
+<section class="slide " id="slide-2">
+  <div>
+    <h2>Slide 2</h2>
+    <p>Data is taken from various datasets which are default in R environment. The three datasets namely </p>
+
+<ul>
+<li>vowel.train - Vowel Recognition (Deterding data)&quot;,<br></li>
+<li>&quot;imports85 - The Automobile Data&quot;,<br></li>
+<li>&quot;iris3 - Edgar Anderson&#39;s Iris Data&quot;).</li>
+</ul>
+
+  </div>
+</section>
+<section class="slide " id="slide-3">
+  <div>
+    <h2></h2>
+    <p>##Slide 3</p>
+
+<p>The modelling is done for each of the dataset to predict a particular variable in all the datasets.</p>
+
+<pre><code class="r">#vowel data
+rf&lt;-randomForest(y~.,data=vowel.train)
+#Automobile data
+rf&lt;-randomForest(numOfDoors~.,data=imports85)
+#Iris Data
+rf&lt;-randomForest(Species~.,data=iris)
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-4">
+  <div>
+    <h2></h2>
+    <p>##Slide 4</p>
+
+<p>Using the modelling , the importance of each variable is found using varImp function.</p>
+
+<pre><code class="r">vm&lt;-varImp(rf)                        
+vm$names &lt;- row.names(vm)
+rf1&lt;-vm[order(-vm$Overall),]
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-5">
+  <div>
+    <h2></h2>
+    <p>##Slide 5</p>
+
+<p>The screenshot of the app.</p>
+
+<iframe src="UM.png" width="1000 height="1000></iframe>
+
+  </div>
+</section>
+  <div class="progress">
+    <div></div>
+  </div>
+	<script src="libraries/frameworks/shower/shower.js"></script>
+	<!-- LOAD HIGHLIGHTER JS FILES -->
+	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+	 
+		<!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+	<!-- Photos by John Carey — fiftyfootshadows.net -->
+</body>
+</html>

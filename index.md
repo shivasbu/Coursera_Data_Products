@@ -1,0 +1,64 @@
+---
+title       : First
+subtitle    : Sub_First
+author      : Me
+job         : Student
+framework   : shower       # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+## Slide 1
+
+Estimation of Variable Importance for various random Forests 
+
+
+Shiva
+
+--- 
+
+## Slide 2
+
+Data is taken from various datasets which are default in R environment. The three datasets namely 
+- vowel.train - Vowel Recognition (Deterding data)",   
+- "imports85 - The Automobile Data",                    
+- "iris3 - Edgar Anderson's Iris Data").
+
+---
+
+##Slide 3
+
+The modelling is done for each of the dataset to predict a particular variable in all the datasets.
+
+
+```r
+#vowel data
+rf<-randomForest(y~.,data=vowel.train)
+#Automobile data
+rf<-randomForest(numOfDoors~.,data=imports85)
+#Iris Data
+rf<-randomForest(Species~.,data=iris)
+```
+
+---
+
+##Slide 4
+
+Using the modelling , the importance of each variable is found using varImp function.
+
+
+```r
+vm<-varImp(rf)                        
+vm$names <- row.names(vm)
+rf1<-vm[order(-vm$Overall),]
+```
+
+---
+
+##Slide 5
+
+The screenshot of the app.
+
+<iframe src="UM.png" width="1000 height="1000></iframe>
